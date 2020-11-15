@@ -6,7 +6,7 @@ class Brands {
     protected $b_status;
 
 
-    public function __constructor($conn){
+    public function __construct($conn){
         $this->conn = $conn;
     }
 

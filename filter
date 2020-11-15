@@ -1,0 +1,91 @@
+                    <?php
+                        foreach($allProducts as $product){?>
+                            <div class="col-md-4 mob">
+                            <div class="product py-4 design">
+                            <?php if($product['p_discount'] > 0){ ?>
+                            <span class="off bg-success"><?= $product['p_discount'] ?>% OFF</span>;
+                            <?php }?>       
+                                    <div class="text-center"> <img src="assets/img/slide/2.png" width="200"> </div>
+                                    <div class="about text-center">
+                                        <h5><?= ucwords($product['p_productName']) ?></h5>
+                                    </div>
+                                    <div class="product-btns py-1">
+                                        <a href="" class="btn-small mr-2"><span>&#8377;</span> <?= $product['p_salePrice']?></a>
+                                    <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } 
+                    ?>
+                    <div class="col-md-4 mob">
+                        <div class="product py-4 design"> <span class="off bg-warning">SALE</span>
+                            <div class="text-center"> <img src="assets/img/slide/10.png" width="200"> </div>
+                            <div class="about text-center">
+                                 <h5>Acer aspire </h5>
+                            </div>
+                            <div class="product-btns py-1">
+                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
+                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mob">
+                        <div class="product py-4 design">
+                            <div class="text-center"> <img src="assets/img/slide/11.png" width="200"> </div>
+                            <div class="about text-center">
+                                <h5>noise smart watch</h5> 
+                            </div>
+                           <div class="product-btns py-1">
+                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
+                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2 mt-2">
+                        <div class="product py-4 design"> <span class="off bg-success">-10% OFF</span>
+                            <div class="text-center"> <img src="assets/img/slide/5.png" width="200"> </div>
+                            <div class="about text-center">
+                                <h5>pink t-shirt</h5>
+                            </div>
+                           <div class="product-btns py-1">
+                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
+                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        <div class="product py-4 design">
+                            <!-- <span class="off bg-success">-25% OFF</span> -->
+                            <div class="text-center"> <img src="assets/img/slide/8.png" width="200"> </div>
+                            <div class="about text-center">
+                                <h5>Boat headphones</h5>
+                            </div>
+                           <div class="product-btns py-1">
+                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
+                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        <div class="product py-4 design"> <span class="off bg-success">-5% OFF</span>
+                            <div class="text-center"> <img src="https://i.imgur.com/QQwcBpF.png" width="200"> </div>
+                            <div class="about text-center">
+                                <h5>Xps smart watch 5.0</h5> 
+                            </div>
+                           <div class="product-btns py-1">
+                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
+                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
