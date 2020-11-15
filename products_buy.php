@@ -1,8 +1,9 @@
 <?php
     require 'header_top.php';
 ?>
-   <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
+   <style>
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&display=swap');
 body {
     background-color: #eee;
@@ -83,6 +84,12 @@ button:active {
 
 .product_fav:hover i {
     color: #fff
+}
+input[type =checkbox]{
+    cursor:pointer;
+}
+input[type=radio]{
+    cursor:pointer;
 }
 
 .about {
@@ -190,171 +197,60 @@ a {
     /* border: 2px solid black!important; */
 }
 
+
+#loading
+{
+ text-align:center; 
+ background: url('./assets/loaders/Spinner-1s-200px.gif') no-repeat center; 
+ width: 100%;
+ height: 100vh;
+}
+
+#noproducts
+{
+    width: 100%;
+    height: 100vh;
+    text-align:center; 
+}
+
+#reset
+{
+    color: rgba(255, 0, 0, 0.7);
+    display:none;
+}
+#reset:hover
+{
+    background-color:
+    border-color: #ffffff;
+    background-color:rgba(34,44,51,0.6);
+    color: #fff;
+}
+.hover:hover
+{
+    background-color:
+    border-color: #ffffff;
+    background-color:rgba(34,44,51,0.6);
+    color: #fff;
+}
+
   </style>
  <div class="container-fluid mb-5 minh">
         <div class="row g-2">
             <div class="col-md-3">
-              
-                
-                <div class="processor p-2">
-                    <div class="heading d-flex justify-content-between align-items-center">
-                        <h6 class="text-uppercase">Processor</h6> <span>--</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Intel Core i7 </label> </div> <span>3</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Intel Core i6 </label> </div> <span>4</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Intel Core i3 </label> </div> <span>14</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Intel Centron </label> </div> <span>8</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Intel Pentinum </label> </div> <span>14</span>
-                    </div>
-                </div>
-                <div class="Ram-type p-2">
-                    <div class="heading d-flex justify-content-between align-items-center">
-                        <h6 class="text-uppercase">Ram-Type</h6> <span>--</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault">DDR4</label> </div> <span>3</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault">DDR3</label> </div> <span>3</span>
-                    </div>
-                </div>
-                <div class="brand p-2">
-                    <div class="heading d-flex justify-content-between align-items-center">
-                        <h6 class="text-uppercase">Brand</h6> <span>--</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Apple </label> </div> <span>13</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Asus </label> </div> <span>4</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Dell </label> </div> <span>24</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Lenovo </label> </div> <span>18</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Acer </label> </div> <span>44</span>
-                    </div>
-                </div>
-                <div class="type p-2 mb-2">
-                    <div class="heading d-flex justify-content-between align-items-center">
-                        <h6 class="text-uppercase">Type</h6> <span>--</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Hybrid </label> </div> <span>23</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Laptop </label> </div> <span>24</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Desktop </label> </div> <span>14</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Touch </label> </div> <span>28</span>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"> <label class="form-check-label" for="flexCheckChecked"> Tablets </label> </div> <span>44</span>
-                    </div>
-                </div>
+                <?php
+                include 'sidebar.php'
+                ?>
             </div>
-            <div class="col-md-9">
-                <div class="row ">
-                    <div class="col-md-4 mob">
-                        <div class="product py-4 design design"> <span class="off bg-success">-25% OFF</span>
-                            <div class="text-center"> <img src="assets/img/slide/2.png" width="200"> </div>
-                            <div class="about text-center">
-                                <h5>One plus 7</h5>
-                            </div>
-                            <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mob">
-                        <div class="product py-4 design"> <span class="off bg-warning">SALE</span>
-                            <div class="text-center"> <img src="assets/img/slide/10.png" width="200"> </div>
-                            <div class="about text-center">
-                                 <h5>Acer aspire </h5>
-                            </div>
-                            <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mob">
-                        <div class="product py-4 design">
-                            <div class="text-center"> <img src="assets/img/slide/11.png" width="200"> </div>
-                            <div class="about text-center">
-                                <h5>noise smart watch</h5> 
-                            </div>
-                           <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-2 mt-2">
-                        <div class="product py-4 design"> <span class="off bg-success">-10% OFF</span>
-                            <div class="text-center"> <img src="assets/img/slide/5.png" width="200"> </div>
-                            <div class="about text-center">
-                                <h5>pink t-shirt</h5>
-                            </div>
-                           <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-2">
-                        <div class="product py-4 design">
-                            <!-- <span class="off bg-success">-25% OFF</span> -->
-                            <div class="text-center"> <img src="assets/img/slide/8.png" width="200"> </div>
-                            <div class="about text-center">
-                                <h5>Boat headphones</h5>
-                            </div>
-                           <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-2">
-                        <div class="product py-4 design"> <span class="off bg-success">-5% OFF</span>
-                            <div class="text-center"> <img src="https://i.imgur.com/QQwcBpF.png" width="200"> </div>
-                            <div class="about text-center">
-                                <h5>Xps smart watch 5.0</h5> 
-                            </div>
-                           <div class="product-btns py-1">
-                                <a href="" class="btn-small mr-2"><span>&#8377;</span>879</a>
-                            <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                            <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
+            <div class="col-md-9 filter_data">
+
             </div>
+            <input type="hidden" id="page" value=0>
+            <input type="hidden" value="buy" id="product_type">
         </div>
     </div>
 
 <?php
+
     require 'footer.php';
+    include 'products_header_scripts.php';
 ?>
