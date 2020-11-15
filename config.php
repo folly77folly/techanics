@@ -17,6 +17,12 @@ $cleardb_server   = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
 $cleardb_db       = substr($cleardb_url["path"],1);
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db );
+
+if ($conn == false){
+    dir('Error: Database Connection Not Found');
+    exit();
+};
 
 
 $active_group = 'default';
