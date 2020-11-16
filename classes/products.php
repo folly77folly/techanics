@@ -1,4 +1,6 @@
 <?php
+// require __DIR__.'/collections/Constants.php';
+// use App\Collections\Constants;
 class Product {
     protected $p_id;
 
@@ -15,9 +17,19 @@ class Product {
         }
     }
 
-    public function getRam(){
-        $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> ''";
+    public function getRam($type){
+        if ($type == "buy")
+        {
+            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_sell <> '0'";
+        }else
+        {
+            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_rent <> '0'";
+        }
+
         $result = mysqli_query($this->conn, $sqlQuery);
+        if (!$result){
+            return;
+        }
         if (mysqli_num_rows($result)> 0 ){
             $array_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
             //fetch to normal arrays
@@ -27,9 +39,19 @@ class Product {
         }
     }
 
-    public function getRamType(){
-        $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> ''";
+    public function getRamType($type){
+        if ($type == "buy")
+        {
+            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_sell <> '0'";
+        }else
+        {
+            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_rent <> '0'";
+        }
+
         $result = mysqli_query($this->conn, $sqlQuery);
+        if (!$result){
+            return;
+        }
         if (mysqli_num_rows($result)> 0 ){
             $array_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
             //fetch to normal arrays
@@ -39,9 +61,18 @@ class Product {
         }
     }
 
-    public function getProcessor(){
-        $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> ''";
+    public function getProcessor($type){
+        if ($type == "buy")
+        {
+            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_sell <> '0'";
+        }else
+        {
+            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_rent <> '0'";
+        }
         $result = mysqli_query($this->conn, $sqlQuery);
+        if (!$result){
+            return;
+        }
         if (mysqli_num_rows($result)> 0 ){
             $array_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
             //fetch to normal arrays
@@ -51,9 +82,18 @@ class Product {
         }
     }
 
-    public function getBrands(){
-        $sqlQuery = "SELECT p_brandName  FROM PRODUCT where p_brandName  <> ''";
+    public function getBrands($type){
+        if ($type == "buy")
+        {
+            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_sell <> '0'";
+        }else
+        {
+            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_rent <> '0'";
+        }
         $result = mysqli_query($this->conn, $sqlQuery);
+        if(!$result){
+            return;
+        }
         if (mysqli_num_rows($result)> 0 ){
             $array_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
             //fetch to normal arrays
@@ -63,9 +103,19 @@ class Product {
         }
     }
 
-    public function getCapacity(){
-        $sqlQuery = "SELECT p_ssdCpty  FROM PRODUCT where p_ssdCpty  <> ''";
+    public function getCapacity($type){
+        if ($type == "buy")
+        {
+            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_sell <> '0'";
+        }else
+        {
+            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_rent <> '0'";
+        }
+
         $result = mysqli_query($this->conn, $sqlQuery);
+        if(!$result){
+            return;
+        }
         if (mysqli_num_rows($result)> 0 ){
             $array_result = mysqli_fetch_all($result, MYSQLI_ASSOC);
             //fetch to normal arrays
