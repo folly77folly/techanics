@@ -2,13 +2,22 @@
     require 'config.php';
     require './classes/products.php';
     //get all products
+    $page_path = (explode('/', trim($_SERVER['REQUEST_URI'], '/')));
+    $path_result = end($page_path);
+    $type = "";
+    if ($path_result == "products_buy.php")
+    {
+        $type = "buy";
+    }
     $products = new Product($conn);
-    $allProducts = $products->getAllProducts(); $allRam = $products->getRam();
-    $allRamType = $products->getRamType(); $allProcessors =
-    $products->getProcessor(); $allBrands = $products->getBrands(); 
-    $allCapacities = $products->getCapacity(); 
+    $allProducts = $products->getAllProducts(); 
+    $allRam = $products->getRam($type);
+    $allRamType = $products->getRamType($type);
+    $allProcessors = $products->getProcessor($type); 
+    $allBrands = $products->getBrands($type); 
+    $allCapacities = $products->getCapacity($type); 
 ?>
-<div class="processor p-2">
+<div class="processor p-2 mb-2">
     <div class="heading d-flex justify-content-between align-items-center">
         <h6 class="text-uppercase">Processor</h6>
         <span>--</span>
@@ -25,10 +34,10 @@
                 <span><?= $count ?></span>
             </div>
             <?php } 
-        } 
+        }
          ?>
 </div>
-<div class="Ram-type p-2">
+<div class="Ram-type p-2 mb-2">
     <div class="heading d-flex justify-content-between align-items-center">
         <h6 class="text-uppercase">Ram</h6>
         <span>--</span>
@@ -48,7 +57,7 @@
                 }
                 ?>
 </div>
-<div class="Ram-type p-2">
+<div class="Ram-type p-2 mb-2">
     <div class="heading d-flex justify-content-between align-items-center">
         <h6 class="text-uppercase">Ram-Type</h6>
         <span>--</span>
@@ -68,7 +77,7 @@
                 }
                 ?>
 </div>
-<div class="brand p-2">
+<div class="brand p-2 mb-2">
     <div class="heading d-flex justify-content-between align-items-center">
         <h6 class="text-uppercase">Brand</h6>
         <span>--</span>
