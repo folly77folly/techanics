@@ -10,4 +10,3 @@ if ($conn == false){
     dir('Error: Database Connection Not Found');
     exit();
 };
-session_start();
