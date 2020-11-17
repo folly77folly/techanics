@@ -49,10 +49,10 @@ class Product {
     public function getRam($type){
         if ($type == "buy")
         {
-            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_sell <> '0'";
+            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_sale <> 0";
         }else
         {
-            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_rent <> '0'";
+            $sqlQuery = "SELECT p_ram FROM PRODUCT where p_ram <> '' AND p_rent <> 0";
         }
 
         $result = mysqli_query($this->conn, $sqlQuery);
@@ -71,10 +71,10 @@ class Product {
     public function getRamType($type){
         if ($type == "buy")
         {
-            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_sell <> '0'";
+            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_sale <> 0";
         }else
         {
-            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_rent <> '0'";
+            $sqlQuery = "SELECT p_ramType FROM PRODUCT where p_ramType <> '' AND p_rent <> 0";
         }
 
         $result = mysqli_query($this->conn, $sqlQuery);
@@ -93,10 +93,10 @@ class Product {
     public function getProcessor($type){
         if ($type == "buy")
         {
-            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_sell <> '0'";
+            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_sale <> 0";
         }else
         {
-            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_rent <> '0'";
+            $sqlQuery = "SELECT p_procName FROM PRODUCT where p_procName <> '' AND p_rent <> 0";
         }
         $result = mysqli_query($this->conn, $sqlQuery);
         if (!$result){
@@ -114,10 +114,10 @@ class Product {
     public function getBrands($type){
         if ($type == "buy")
         {
-            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_sell <> '0'";
+            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_sale <> 0";
         }else
         {
-            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_rent <> '0'";
+            $sqlQuery = "SELECT p_brandName FROM PRODUCT where p_brandName <> '' AND p_rent <> 0";
         }
         $result = mysqli_query($this->conn, $sqlQuery);
         if(!$result){
@@ -135,10 +135,10 @@ class Product {
     public function getCapacity($type){
         if ($type == "buy")
         {
-            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_sell <> '0'";
+            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_sale <> 0";
         }else
         {
-            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_rent <> '0'";
+            $sqlQuery = "SELECT p_ssdCpty FROM PRODUCT where p_ssdCpty <> '' AND p_rent <> 0";
         }
 
         $result = mysqli_query($this->conn, $sqlQuery);
