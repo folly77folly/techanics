@@ -119,7 +119,7 @@ if(isset($_POST['action'])){
                         <h5>'.ucwords($product['p_productName']).'</h5>
                     </div>
                     <div class="product-btns py-1">
-                        <a href="" class="btn-small mr-2"><span>&#8377;</span>'. number_format($product['p_salePrice']). '</a>
+                        <a href="product.php?pid='.$product['p_id'].'" class="btn-small mr-2"><span>&#8377;</span>'. number_format($product['p_salePrice']). '</a>
                     <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
                     <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
                     </div>

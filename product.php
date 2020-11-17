@@ -1,7 +1,25 @@
 <?php
 require 'header_top.php';
-?>
+require 'config.php';
+require './classes/rating.php';
+require './classes/products.php';
+$rating = new Rating($conn);
+$product = new Product($conn);
+$productRecord = "";
+if(!isset($_GET['pid']))
+{
+    echo "404";
+}else{
 
+    $productRecord = $product->find($_GET['pid']);
+    $star = $rating->productStar($_GET['pid']);
+    $review = $rating->reviewCount($_GET['pid']);
+    $rating = $rating->ratingCount($_GET['pid']);
+    // var_dump($review);
+    
+}
+
+?>
 <style>
     body{
         background-color: #f0f0f0;
@@ -61,32 +79,41 @@ require 'header_top.php';
                      </ul>  -->
                 </div>
                 <div class="col-lg-5 order-lg-2 order-1 design">
-                    <div class="image_selected"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565713229/single_4.jpg" alt=""></div>
+                    <div class="image_selected"><img src="<?= $productRecord['p_img1']?>" alt=""></div>
                 </div>
                 <div class="col-lg-6 order-3">
                     <div class="product_description">
-                        <div class="product_name">Acer Aspire 3 Celeron Dual Core - (2 GB/500 GB HDD/Windows 10 Home) A315-33 Laptop (15.6 inch, Black, 2.1 kg)
+                        <div class="product_name"><?= $productRecord['p_productName'] . " ". $productRecord['p_productDesc']  ?>
 
                         </div>
                         <div class="product-rating">
-                          <span class="badge badge-success"><i class="fa fa-star"></i> 4.5 Star</span> <span class="rating-review">35 Ratings & 45 Reviews</span>
+                          <span class="badge badge-success"><i class="fa fa-star"></i> <?= $star ?> Star</span> <span class="rating-review"><?= $rating?> Rating(s) & <?= $review ?> Review(s)</span>
                         </div>
+                            <div>
+                                <?php
+                                if($product->hasDiscount($_GET['pid'])){ ?>
+                                <span class="product_price">₹ <?= $product->discountAmt($_GET['pid']) ?></span> <strike class="product_discount"> <span style='color:black'>₹ <?= number_format($productRecord['p_salePrice'], 2)?> <span> </strike> 
+                                <?php }else { ?>
+                                <span class="product_price">₹ <?= $productRecord['p_salePrice']?>
+                                <?php }
+                                ?>
+                            </div>
+                            <?php if($product->hasDiscount($_GET['pid'])){ ?>
+                          <span class="product_saved">You Saved:</span> <span style='color:black'>₹ <?= $product->discount($_GET['pid']) ?><span> 
+                            <?php } ?>
+                          
                         <div> 
-                          <span class="product_price">₹ 29,000</span> <strike class="product_discount"> <span style='color:black'>₹ 2,000<span> </strike> 
-                          </div>
-                        <div> 
-                          <span class="product_saved">You Saved:</span> <span style='color:black'>₹ 2,000<span> 
 
                           </div>
                         <hr class="singleline">
                         <div> 
-                          <span class="product_info"><span>2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,<br> <span class="product_info"><b>Model Number:</b> ABC123<span><br> <span class="product_info"><b>Color: </b>black<span><br> <span class="product_info"><b>Brand:</b> Lenevo<span><br> <span class="product_info"><b>In Stock:</b> 25 units sold this week<span> 
+                          <span class="product_info"><span><?= ucwords($productRecord['p_productDesc']) ?>,<br> <span class="product_info"><b>Model Number:</b> <?= $productRecord['p_modelNo']?><span><br> <span class="product_info"><b>Color: </b><?= $productRecord['p_color']?><span><br> <span class="product_info"><b>Brand:</b> <?=  $productRecord['p_brandName']?><span><br> <span class="product_info"><b>In Stock:</b> <?=$productRecord['p_quantity'] ?> Units<span> 
 
                           </div>
                         <div>
                             <div class="row" style="margin-top: 12px;">
-                                <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Ram Options</span><br> <button class="btn themebtn btn-sm"><b>4 GB</b></button> <button class="btn themebtn btn-sm"><b>8 GB</b></button></div>
-                                <div class="col-xs-6" style="margin-left: 55px;"> <span class="product_options">Storage Options</span><br> <button class="btn themebtn btn-sm"><b>500 GB</b></button> <button class="btn themebtn btn-sm"><b>1 TB</b></button> </div>
+                                <div class="col-xs-6" style="margin-left: 15px;"> <span class="product_options">Ram Options</span><br> <button class="btn themebtn btn-sm"><b><?=  $productRecord['p_ram']?> GB</b></button> <button class="btn themebtn btn-sm"><b>8 GB</b></button></div>
+                                <div class="col-xs-6" style="margin-left: 55px;"> <span class="product_options">Storage Options</span><br> <button class="btn themebtn btn-sm"><b><?=  $productRecord['p_ssdCpty']?> GB</b></button> <button class="btn themebtn btn-sm"><b>1 TB</b></button> </div>
                             </div>
                         </div>
                         <hr class="singleline">
@@ -128,7 +155,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Sales Package :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li>2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide, Warranty Documents</li>
+                            <li><?=  ucwords($productRecord['p_salePackage'])?></li>
                         </ul>
                     </td>
                 </tr>
@@ -136,7 +163,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Model Number :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li> 14-dh0107TU </li>
+                            <li> <?=  $productRecord['p_modelNo']?></li>
                         </ul>
                     </td>
                 </tr>
@@ -144,7 +171,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Part Number :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li>7AL87PA</li>
+                            <li><?=  $productRecord['p_partNo']?></li>
                         </ul>
                     </td>
                 </tr>
@@ -152,7 +179,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Color :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li>Black</li>
+                            <li><?=  ucwords($productRecord['p_color'])?></li>
                         </ul>
                     </td>
                 </tr>
@@ -160,7 +187,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Suitable for :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li>Processing & Multitasking</li>
+                            <li><?=  ucwords($productRecord['p_suitableFor'])?></li>
                         </ul>
                     </td>
                 </tr>
@@ -168,7 +195,7 @@ require 'header_top.php';
                     <td class="col-md-4"><span class="p_specification"><b>Processor Brand :</b></span> </td>
                     <td class="col-md-8">
                         <ul>
-                            <li>Intel</li>
+                            <li><?=  ucwords($productRecord['p_procBrand'])?></li>
                         </ul>
                     </td>
                 </tr>
@@ -192,8 +219,8 @@ require 'header_top.php';
         </div>
 
         <div class="row">
-           
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+           <?php require('similar_products.php')?>
+            <!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div class="single-product">
                     <div class="product-thumb">
                         <img src="assets/img/slide/1.png" alt="">
@@ -251,7 +278,7 @@ require 'header_top.php';
                         <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section> 
