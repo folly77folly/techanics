@@ -1,5 +1,5 @@
 <?php
-// require __DIR__.'/collections/Constants.php';
+// include '..collections/Constants.php';
 // use App\Collections\Constants;
 class Product {
     protected $p_id;
@@ -16,6 +16,35 @@ class Product {
             return $rows;
         }
     }
+
+    public function find($id){
+        $sqlQuery = "SELECT * from product where p_id ='" . $id . "' ";
+        $result = mysqli_query($this->conn, $sqlQuery);
+        if (mysqli_num_rows($result) > 0){
+            $rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            return $rows;
+        }
+    }
+
+    public function findSimilar(int $id){
+        $sqlQuery = "SELECT * from product where p_id ='" . $id . "' ";
+        $result = mysqli_query($this->conn, $sqlQuery);
+        if (mysqli_num_rows($result) > 0){
+            $rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            
+            // search criteria
+            $category = $rows['p_category'];
+            $ram = $rows['p_ram'];
+
+            $sqlQuerySimilar = "SELECT p_salePrice, p_productName, p_productDesc, p_img1,p_id from product where p_category like'%" . $category . "%' and p_ram like '%" . $ram . "%' ";
+            $similarResult = mysqli_query($this->conn, $sqlQuerySimilar);
+            if (mysqli_num_rows($similarResult) > 0){
+                $row = mysqli_fetch_all($similarResult, MYSQLI_ASSOC);
+                return $row;
+            }
+        }
+    }
+
 
     public function getRam($type){
         if ($type == "buy")
@@ -138,4 +167,34 @@ class Product {
         $count = mysqli_num_rows($result);
         return $count;
     }
+
+    public function hasDiscount(int $id){
+        $sqlQuery = "SELECT p_discount from product WHERE p_discount > 0 and p_id = '". $id ."'";
+        // var_dump($sqlQuery);
+        $query_check = mysqli_query($this->conn, $sqlQuery);
+        if (mysqli_num_rows($query_check)> 0){
+            return true;
+        }
+        return false;
+    }
+
+    public function discount(int $id){
+            $sqlQuery = "SELECT p_discount, p_salePrice, p_productPrice from product WHERE p_id = '". $id ."'";
+            $query_check = mysqli_query($this->conn, $sqlQuery);
+            $result = mysqli_fetch_row($query_check);
+            $discount_rate = floatval($result[0])/100;
+            $discounted_amt = $result[1] * $discount_rate;
+            return number_format($discounted_amt, 2);
+    }
+
+    public function discountAmt(int $id){
+            $sqlQuery = "SELECT p_discount, p_salePrice, p_productPrice from product WHERE p_id = '". $id ."'";
+            $query_check = mysqli_query($this->conn, $sqlQuery);
+            $result = mysqli_fetch_row($query_check);
+            $discount_rate = floatval($result[0])/100;
+            $discounted_amt = $result[1] * $discount_rate;
+            $discount_price = $result[1] - $discounted_amt;
+            return number_format($discount_price, 2);
+    }
+
 }
