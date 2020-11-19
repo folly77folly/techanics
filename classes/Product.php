@@ -2,7 +2,8 @@
 // include '..collections/Constants.php';
 // use App\Collections\Constants;
 class Product {
-    protected $p_id;
+    public $id;
+    public $type;
 
     public function __construct($conn){
         $this->conn = $conn;
@@ -18,7 +19,8 @@ class Product {
     }
 
     public function find($id){
-        $sqlQuery = "SELECT * from product where p_id ='" . $id . "' ";
+        $this->id = $id;
+        $sqlQuery = "SELECT * from product where p_id ='" . $this->id . "' ";
         $result = mysqli_query($this->conn, $sqlQuery);
         if (mysqli_num_rows($result) > 0){
             $rows = mysqli_fetch_array($result, MYSQLI_ASSOC);
