@@ -1,7 +1,4 @@
 <?php
-// require 'config.php';
-// require './classes/products.php';
-// $product = new Product($conn);
 $similarRecord = "";
 if(!isset($_GET['pid']))
 {

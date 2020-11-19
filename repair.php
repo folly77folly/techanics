@@ -61,11 +61,12 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="./backend/contact_us.php" method="post" role="form" class="php-email-form">
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <h4 style="border-bottom: 2px #3d2f95 solid; width: 20%; padding-bottom: 10px;">
-                                <b>Enquiry</b></h4>
+                                <b>Enquiry</b>
+                            </h4>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Your Name</label>
@@ -95,9 +96,16 @@
                     <div class="mb-3">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <div style="
+                            display: none;
+                            color: #fff;
+                            background: #18d26e;
+                            text-align: center;
+                            padding: 15px;
+                            font-weight: 600;
+                            " class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
+                    <div class="text-center"><button name="submit" type="submit">Send Message</button></div>
                 </form>
             </div>
 

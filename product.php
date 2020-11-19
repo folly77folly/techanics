@@ -1,8 +1,11 @@
 <?php
 require 'header_top.php';
 require 'config.php';
-require './classes/rating.php';
-require './classes/products.php';
+spl_autoload_register(function($class_name){
+    include './classes/'.$class_name.'.php';
+});
+// require './classes/rating.php';
+// require './classes/products.php';
 $rating = new Rating($conn);
 $product = new Product($conn);
 $productRecord = "";

@@ -694,9 +694,9 @@ section {
   margin-top: 25px;
 }
 
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
+.contact .php-email-form .sent-message{
+  display: none !important;
+  color: #fff !important;
   background: #18d26e;
   text-align: center;
   padding: 15px;
