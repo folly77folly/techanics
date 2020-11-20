@@ -1,6 +1,6 @@
 <?php
 require '../config.php';
-require '../classes/products.php';
+require '../autoloader/class_autoloader.php';
 include '../collections/Constants.php';
 use App\Collections\Constants;
 

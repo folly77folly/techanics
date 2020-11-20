@@ -4,17 +4,27 @@
 class Product {
     public $id;
     public $type;
+    public $salePrice;
 
     public function __construct($conn){
         $this->conn = $conn;
     }
 
     public function getAllProducts(){
-        $sqlQuery = "SELECT * from product LIMIT 50";
+        $sqlQuery = "SELECT * from product";
         $result = mysqli_query($this->conn, $sqlQuery);
         if (mysqli_num_rows($result) > 0){
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $rows;
+        }
+    }
+
+    public function getProduct_Id($productId){
+        $sqlQuery = "SELECT p_id from product where p_productId ='" . $productId . "' ";
+        $result = mysqli_query($this->conn, $sqlQuery);
+        if (mysqli_num_rows($result) > 0){
+            $row = mysqli_fetch_row($result);
+            return $row[0];
         }
     }
 
@@ -186,7 +196,7 @@ class Product {
             $result = mysqli_fetch_row($query_check);
             $discount_rate = floatval($result[0])/100;
             $discounted_amt = $result[1] * $discount_rate;
-            return number_format($discounted_amt, 2);
+            return $discounted_amt;
     }
 
     public function discountAmt(int $id){
@@ -196,7 +206,25 @@ class Product {
             $discount_rate = floatval($result[0])/100;
             $discounted_amt = $result[1] * $discount_rate;
             $discount_price = $result[1] - $discounted_amt;
-            return number_format($discount_price, 2);
+            return $discount_price;
+    }
+
+    public function salePrice(int $id){
+        $sqlQuery = "SELECT p_salePrice from product WHERE p_id = '". $id ."'";
+        $query_check = mysqli_query($this->conn, $sqlQuery);
+        $result = mysqli_fetch_row($query_check);
+        $price = floatval($result[0]);
+        return $price;
+}
+
+    public function orderPrice($id, $qty){
+        if($this->hasDiscount($id)){
+            $amt = ($this->discountAmt($id));
+            $orderAmt = $amt * $qty;
+            return $orderAmt;
+        }else{
+            return $this->salePrice($id) * $qty;
+        }
     }
 
 }

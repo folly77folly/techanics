@@ -1,14 +1,12 @@
 <?php
 require '../config.php';
-spl_autoload_register(function($className){
-    include '../classes/'.$className. '.php';
-});
+require '../autoloader/class_autoloader.php';
+require_once "../vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // include '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 
-require_once "../vendor/autoload.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = strip_tags($_POST['email']);
