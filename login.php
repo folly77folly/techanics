@@ -121,7 +121,7 @@ div.mycontainer button {
             <div class="tablinks" id="signuptab" data-form-id="signup">Sign up</div>
         </div>
         <div class="tabcontent" id="login">
-            <form action="index.php">
+            <form action="backend/login_script.php">
                 <label for="loginphone">Phone Number:</label>
                 <input required type="phone" id="loginphone" placeholder="+91 1234567890" />
               

@@ -1,6 +1,9 @@
 <?php
     require 'config.php';
-    require './classes/products.php';
+    spl_autoload_register(function($class_name){
+        include './classes/'.$class_name. '.php';
+    });
+    
     //get all products
     $page_path = (explode('/', trim($_SERVER['REQUEST_URI'], '/')));
     $path_result = end($page_path);
