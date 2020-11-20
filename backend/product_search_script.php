@@ -1,8 +1,6 @@
 <?php
 require '../config.php';
-spl_autoload_register(function($class_name){
-    include '../classes/'.$class_name. '.php';
-});
+require '../autoloader/class_autoloader.php';
 include '../collections/Constants.php';
 use App\Collections\Constants;
 
