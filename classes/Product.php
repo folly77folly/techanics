@@ -217,6 +217,14 @@ class Product {
         return $price;
 }
 
+public function Quantity(int $id){
+    $sqlQuery = "SELECT p_quantity from product WHERE p_id = '". $id ."'";
+    $query_check = mysqli_query($this->conn, $sqlQuery);
+    $result = mysqli_fetch_row($query_check);
+    $qty = ($result[0]);
+    return $qty;
+}
+
     public function orderPrice($id, $qty){
         if($this->hasDiscount($id)){
             $amt = ($this->discountAmt($id));

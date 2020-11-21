@@ -265,6 +265,10 @@ a {
     color: #fff;
 }
 
+.icon-cog {
+  color: red;
+}
+
 </style>
 <div class="minh">
 <div class="request-form mt-5">

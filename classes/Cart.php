@@ -10,7 +10,28 @@ class Cart{
     public function __construct($conn){
         $this->conn = $conn;
     }
+    public function addToCart($userID, $productID){
+        if (!$this->find($userID, $productID)){
+            $sqlQuery ="INSERT INTO cart values(NULL, '$this->userID', '$this->productID','1','1')";
+            $success = mysqli_query($this->conn, $sqlQuery);
+            if ($success){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public function find($userID, $productID){
+        $this->userID = $userID;
+        $this->productID = $productID;
+        $sqlQuery ="SELECT * FROM cart WHERE c_userid = '".$this->userID."' AND c_productid = '".$this->productID."' ";
+        $query = mysqli_query($this->conn, $sqlQuery);
+        if (mysqli_num_rows($query) > 0){
+            return true;
+        }
+        return false;
+
+    }
     public function allCart($query){
         $this->query = $query;
         $query_check = mysqli_query($this->conn, $this->query);

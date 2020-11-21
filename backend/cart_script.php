@@ -97,7 +97,21 @@ if(isset($_POST['removeItem'])){
     $result = $cart->delete($_POST['cartID']);
     if (!$result){
         echo "An Error Occurred Unable to Delete";
-    }
-    echo "Item Removed Successfully";
+    }else{
 
+        echo "Item Removed Successfully";
+    }
+
+}
+
+if(isset($_POST["addToCart"])){
+    $cart = new Cart($conn);
+    $result = $cart->addToCart($userId, $_POST['productId']);
+    if (!$result){
+        echo "Item Already added to Cart";
+    }else{
+        echo 'true';
+        // echo "Item Added Successfully to Car";
+        // header("Location: ../cart.php");
+    }
 }
