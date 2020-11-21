@@ -1,8 +1,5 @@
 <?php
 require './backend/session_start_script.php';
-    if(!isset($_SESSION['user_id'])){
-        header("location: login.php");
-    }
     require 'header_top.php';
 ?>
 <style>

@@ -1,4 +1,5 @@
 <?php
+require 'session_start_script.php';
 require '../config.php';
 require '../autoloader/class_autoloader.php';
 include '../collections/Constants.php';
@@ -101,6 +102,7 @@ if(isset($_POST['action'])){
 
 
     $newProducts = new Product($conn);
+    $liked = new Wishlist($conn);
     $result = $newProducts->getAjaxSearch($queryWithLimit);
     $queryCount = $newProducts->getQueryCount($sqlQuery);
     $totalPages = ceil($queryCount/Constants::$LIMIT);
@@ -120,8 +122,16 @@ if(isset($_POST['action'])){
                     </div>
                     <div class="product-btns py-1">
                         <a href="product.php?pid='.$product['p_id'].'" class="btn-small mr-2"><span>&#8377;</span>'. number_format($product['p_salePrice']). '</a>
-                    <a href="" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>
+                    <a  data-id ="'.$product['p_productId'].'" class="btn-round mr-2 cart"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="" class="btn-round"><i class="fa fa-location-arrow"></i></a>';
+                    if(isset($_SESSION["user_id"])){
+                        $class = "";
+                       if ($liked->find(($_SESSION["user_id"]), $product['p_id'])){
+                           $class ="icon-cog";
+                       };
+                      $output .='<a data-id ="'.$product['p_id'].'" class="btn-round wishlist"><i id ="my-'.$product['p_id'].'" class=" '.$class.' fab fa-gratipay fa-lg"></i></a>';
+                    }
+                    $output .='
                     </div>
                 </div>
             </div>';

@@ -134,33 +134,7 @@ $(document).ready(function(){
 
     })
 
-    $(document).on('submit', '#search', function(){
-        // console.log('am submitting');
-        // let fullSearch = 'search';
-        // let searchText = $('#searchText').val();
-        // let productType =$('#product_type').val()
-        // $.ajax({
-        //     url:"backend/product_search_script.php",
-        //     method:"POST",
-        //     data: {
-        //         fullSearch: fullSearch,
-        //         searchText: searchText,
-        //         productType: productType,
-        //     },
-        //     beforeSend: function(){
-        //         let loader = '<div id="loading"></div>'
-        //         $('.filter_data').html(loader); 
-        //     },
-        //     success: function(data){
-        //         console.log(data)
-        //         setTimeout(()=>{
-        //             $('.filter_data').html('');
-        //             $('.filter_data').html(data); 
-        //         }, 2000)
-        //     }
-        // })
-        search_data()
-    })
+    
 
     function search_data(){
         console.log('am submitting');
@@ -218,5 +192,47 @@ $(document).ready(function(){
             document.getElementById('page').value = newPage;
             search_data();
 
+    })
+    $(document).on('click','.wishlist', function(){
+        let productId = $(this).attr("data-id");
+        let wish = "add-wish";
+        $.ajax({
+            type:"POST",
+            url: "backend/wishlist_script.php",
+            data:{
+                wish: wish,
+                productId: productId,
+            },
+            success:function(data){
+                let icon = document.querySelector("#my-"+productId);
+                if (data === "true"){
+                    icon.classList.add("icon-cog");
+                }else{
+                    icon.classList.remove("icon-cog")
+                }
+            }
+        })
+
+    })
+
+    $(document).on('click', '.cart', function(){
+        let productId = $(this).attr("data-id");
+        // alert(productId);
+        let addToCart = "add_to_cart";
+        $.ajax({
+            type:"POST",
+            url: "backend/cart_script.php",
+            data:{
+                addToCart: addToCart,
+                productId: productId,
+            },
+            success:function(data){
+                if (data === "true"){
+                    window.location.href='cart.php';
+                }else{
+                    alert(data)
+                }
+            }
+        })
     })
 })

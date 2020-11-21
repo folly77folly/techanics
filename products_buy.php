@@ -233,6 +233,21 @@ a {
     color: #fff;
 }
 
+.fa-heart{
+  font-size: 1rem;
+  color:#000;
+  font-weight: lighter;
+  background-color: #000;
+}
+
+.fa-heart:hover{
+  color: rgb(0,0,0);
+}
+
+.icon-cog {
+  color: red;
+}
+
   </style>
  <div class="container-fluid mb-5 minh">
         <div class="row g-2">
