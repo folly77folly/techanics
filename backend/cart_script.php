@@ -1,10 +1,11 @@
 <?php
-require 'session_start_script.php';
+session_start();
+// require 'session_start_script.php';
 require '../config.php';
 require '../autoloader/class_autoloader.php';
-$userId = $_SESSION["user_id"];
 $output = "";
-if (isset($_GET['action'])){
+if (isset($_GET['action']) && isset($_SESSION["user_id"])){
+    $userId = $_SESSION["user_id"];
     $sqlQuery = "SELECT * FROM cart WHERE c_userid = '" .$userId. "'";
     $myCart = new Cart($conn);
     $myProduct_Id = new Product($conn);
@@ -42,12 +43,13 @@ if (isset($_GET['action'])){
         }
 
         echo $output;
+        return;
     }
 }
 
-if(isset($_GET['cartSummary'])){
+if(isset($_GET['cartSummary']) && isset($_SESSION["user_id"]) ){
     $cart_summary = array();
-    $sqlQuery = "SELECT * FROM cart WHERE c_userid = '" .$userId. "'";
+    $sqlQuery = "SELECT * FROM cart WHERE c_userid = '" .$_SESSION["user_id"]. "'";
     $myCart = new Cart($conn);
     $myProduct_Id = new Product($conn);
     $cart = $myCart->allCart($sqlQuery);
@@ -104,14 +106,13 @@ if(isset($_POST['removeItem'])){
 
 }
 
-if(isset($_POST["addToCart"])){
+
+if(isset($_POST["addToCart"]) && isset($_SESSION["user_id"]) ){
     $cart = new Cart($conn);
-    $result = $cart->addToCart($userId, $_POST['productId']);
+    $result = $cart->addToCart($_SESSION["user_id"], $_POST['productId']);
     if (!$result){
-        echo "Item Already added to Cart";
+        echo "false";
     }else{
         echo 'true';
-        // echo "Item Added Successfully to Car";
-        // header("Location: ../cart.php");
     }
 }

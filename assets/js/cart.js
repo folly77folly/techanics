@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     function fetch_cart(){
         let action = "fetch_data";
+
         $.ajax({
             method:"GET",
             url: "backend/cart_script.php",
@@ -10,11 +11,10 @@ $(document).ready(function(){
                 action:action,
             },
             success:function(data){
-                // console.log(data)
-                 $('.cart_data').html(data)
+                    $('.cart_data').html(data)
+                    cart_summary();
             }
         })
-        cart_summary();
     }
 
     function cart_summary(){
@@ -26,7 +26,7 @@ $(document).ready(function(){
                 cartSummary:cartSummary,
             },
             success:function(data){
-                console.log('cart',data)
+ 
                  $('.summary_data').html(data);
             }
         })

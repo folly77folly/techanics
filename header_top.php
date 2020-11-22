@@ -85,7 +85,7 @@
               <li><a href="cart.php"><!--<i class="fa fa-cart-arrow-down"></i>-->Cart</a></li>
               <li><a href="wishlist.php">Wishlist</a></li>
               <li><a href="contact.php">Contact Us</a></li>
-              <li><a href="indexlogout.php">Logout</a></li>
+              <li><a href="backend/logout_script.php">Logout</a></li>
             </ul>
           </li>
           
