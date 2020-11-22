@@ -1,5 +1,6 @@
 <?php
-require 'session_start_script.php';
+// require 'session_start_script.php';
+session_start();
 require '../config.php';
 require '../autoloader/class_autoloader.php';
 include '../collections/Constants.php';

@@ -217,7 +217,6 @@ $(document).ready(function(){
 
     $(document).on('click', '.cart', function(){
         let productId = $(this).attr("data-id");
-        // alert(productId);
         let addToCart = "add_to_cart";
         $.ajax({
             type:"POST",
@@ -227,10 +226,14 @@ $(document).ready(function(){
                 productId: productId,
             },
             success:function(data){
+                console.log(data)
                 if (data === "true"){
                     window.location.href='cart.php';
+                }else if (data ==="false"){
+                    alert("Item already added to cart")
+                    
                 }else{
-                    alert(data)
+                    window.location.href='login.php';
                 }
             }
         })

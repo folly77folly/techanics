@@ -1,4 +1,5 @@
 <?php
+// require './backend/session_start_script.php';
     require 'header_top.php';
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
