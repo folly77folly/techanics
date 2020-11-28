@@ -1,8 +1,9 @@
 <?php
-require 'header_top.php';
+// require 'header_top.php';
 require 'config.php';
-include 'classes/Rating.php';
-include 'classes/Product.php';
+echo (dirname(__DIR__).'/classes/Rating.php');
+require dirname(__DIR__).'classes/Rating.php';
+// require 'classes/Product.php';
 $rate = new Rating($conn);
 $prod = new Product($conn);
 $prodRecord = "";
