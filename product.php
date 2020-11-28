@@ -1,10 +1,10 @@
 <?php
 // require 'header_top.php';
 require 'config.php';
-echo (dirname(__DIR__).'classes/rating.php');
-require dirname(__DIR__).'classes/rating.php';
+echo (dirname(__DIR__).'classes/Star.php');
+require dirname(__DIR__).'classes/Star.php';
 // require 'classes/Product.php';
-$rate = new Rating($conn);
+$rate = new Star($conn);
 $prod = new Product($conn);
 $prodRecord = "";
 if(!isset($_GET['pid']))
