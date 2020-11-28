@@ -1,5 +1,5 @@
 <?php
-// require 'header_top.php';
+require 'header_top.php';
 require 'config.php';
 // echo (dirname(__DIR__).'classes/Star.php');
 // require dirname(__DIR__).'classes/Star.php';
