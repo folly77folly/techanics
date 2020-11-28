@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +31,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/profile.css">
   <link rel="stylesheet" type="text/css" href="assets/css/prddesc.css">
   <link href="assets/css/style.css" rel="stylesheet">
+  
 </head>
 <style>
     @media (max-width:768px){
@@ -54,7 +56,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-        <a href="index.php"><img src="assets/img/mainlogo.jpeg" class="logo"></a>
+        <a href=""><img src="assets/img/mainlogo.jpeg" class="logo"></a>
         <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
                     <form action="#" class="search-wrap" id="search">
                         <div class="input-group w-100"> <input type="text" id ="searchText" class="form-control search-form" style="width:35%;" placeholder="Search">
@@ -68,7 +70,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li <?php if(isset($home))echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li class="drop-down"><a href="">Services</a>
             <ul>
               <li><a href="products_buy.php">Shop</a></li>
@@ -85,7 +87,14 @@
               <li><a href="cart.php"><!--<i class="fa fa-cart-arrow-down"></i>-->Cart</a></li>
               <li><a href="wishlist.php">Wishlist</a></li>
               <li><a href="contact.php">Contact Us</a></li>
-              <li><a href="backend/logout_script.php">Logout</a></li>
+              <?php 
+        
+              if(isset($_SESSION['user_id'])){ ?>
+                <li><a href="backend/logout_script.php">Logout</a></li>
+              <?php 
+            }
+              ?>
+              
             </ul>
           </li>
           

@@ -220,22 +220,25 @@ $(document).ready(function(){
         let addToCart = "add_to_cart";
         $.ajax({
             type:"POST",
-            url: "backend/cart_script.php",
+            url: "backend/add_to_cart_script.php",
             data:{
                 addToCart: addToCart,
                 productId: productId,
             },
             success:function(data){
-                console.log(data)
                 if (data === "true"){
                     window.location.href='cart.php';
-                }else if (data ==="false"){
-                    alert("Item already added to cart")
-                    
+                }else if (data === "false"){
+                    alert("Item already added to cart");
                 }else{
                     window.location.href='login.php';
                 }
-            }
+            },
+            error: function(error){
+                alert(error);
+            },
+
+            async:false,
         })
     })
 })

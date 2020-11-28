@@ -60,7 +60,7 @@
       
             <nav class="nav-menu d-none d-lg-block">
               <ul>
-                <li<?php if(isset($home))echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+                <li><a>Home</a></li>
                 <li class="drop-down"><a href="">Services</a>
                   <ul>
                     <li><a href="products_buy.php">Shop</a></li>

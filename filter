@@ -88,4 +88,43 @@
 
 
 
-                    
+ $(document).on('click', '#sign-in-button', function(){
+          event.preventDefault();
+          var phoneNo = $('#loginphone').val();
+          if (phoneNo === ""){
+            divMessage("alert-danger","Phone Number Cannot Be Empty !!!");
+          }
+        existingUser((callbackfnc)=>{
+            console.log(callbackfnc)
+            if(callbackfnc === "false"){
+                divMessage("alert-danger","User not registered. Pls Sign-up !")
+            }else{
+                var appVerifier = window.recaptchaVerifier;
+                console.log(phoneNo);
+              //   <i clas
+                $('#sign-in-button').html('<i class="fas fa-spinner fa-spin fa-2x"></i> Sending OTP')
+                $(this).attr("disabled", true);
+                firebase.auth().signInWithPhoneNumber(phoneNo, appVerifier)
+                .then((confirmationResult)=>{
+      
+                      if (confirmationResult){
+                          divMessage("alert-success","Check your phone for message sent");
+                          console.log(confirmationResult);
+                          window.confirmationResult = confirmationResult
+                          $('#sign-in-button').html('Request OTP')
+                          $('#verify-button').attr("disabled", false);
+                      }
+      
+                }).catch((error)=>{
+                      $('#sign-in-button').html('Verify OTP')
+                      divMessage("alert-danger", error.message);
+                          // window.location.reload();
+                          console.log(window.recaptchaWidgetId);
+                          // grecaptcha.reset(window.recaptchaWidgetId);
+                })
+                $(this).attr("disabled", false);
+
+            }
+        });
+          
+      })

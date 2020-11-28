@@ -149,7 +149,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-6" style="margin-left: 13px;">
-                                        <button type="button" class="btn themebtninv shop-button">Add to Cart</button>
+                                        <button data-id ="<?=$productRecord['p_productId'] ?>" type="button" class="cart btn themebtninv shop-button">Add to Cart</button>
                                         <button type="button" class="btn themebtninv shop-button">Buy Now</button>
 
                                     </div>
@@ -254,4 +254,5 @@ $(document).ready(function() {
 
 <?php
 require 'footer.php';
+include 'products_header_scripts.php';
 ?>

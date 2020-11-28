@@ -1,4 +1,5 @@
 <?php
+// require '../header_top.php';
 session_start();
 // require 'session_start_script.php';
 require '../config.php';
@@ -60,7 +61,6 @@ if(isset($_GET['cartSummary']) && isset($_SESSION["user_id"]) ){
             $price = $myProduct_Id->orderPrice($id, $item['c_qty']);
             $cart_summary[$item_product["p_productName"]]  = $price;
         }
-        // print_r($cart_summary); 
         $output .='<hr>';
         foreach($cart_summary as $summary=>$price){
             $output .='
@@ -104,15 +104,4 @@ if(isset($_POST['removeItem'])){
         echo "Item Removed Successfully";
     }
 
-}
-
-
-if(isset($_POST["addToCart"]) && isset($_SESSION["user_id"]) ){
-    $cart = new Cart($conn);
-    $result = $cart->addToCart($_SESSION["user_id"], $_POST['productId']);
-    if (!$result){
-        echo "false";
-    }else{
-        echo 'true';
-    }
 }

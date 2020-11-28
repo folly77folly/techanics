@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +47,7 @@
                 </div>
         <nav class="nav-menu d-none d-lg-block ml-auto">
         <ul>
-          <li <?php if(isset($home))echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+          <li <?php if(isset($home))echo 'class="active"'; ?>><a href="">Home</a></li>
           <li class="drop-down"><a href="">Services</a>
             <ul>
               <li><a href="products_buy.php">Shop</a></li>
@@ -63,7 +64,11 @@
               <li><a href="cart.php"><!--<i class="fa fa-cart-arrow-down"></i>-->Cart</a></li>
               <li><a href="wishlist.php">Wishlist</a></li>
               <li><a href="contact.php">Contact Us</a></li>
-              <li><a href="indexlogout.php">Logout</a></li>
+              <?php if(isset($_SESSION['user_id'])){ ?>
+                <li><a href="indexlogout.php">Logout</a></li>
+              <?php 
+            }
+              ?>
             </ul>
           </li>
           
