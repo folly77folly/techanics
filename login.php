@@ -1,5 +1,20 @@
 <?php
-    require 'header_top.php';
+session_start();
+require 'header_top.php';
+if(isset($_SESSION['error'])){
+    $errorMsg = $_SESSION['error'][1];
+    $errorKey = $_SESSION['error'][0];
+    unset($_SESSION['error']);
+}else{
+    $errorMsg = "";
+}
+
+if(isset($_SESSION['success'])){
+    $successMsg = $_SESSION['success'][1];
+    unset($_SESSION['success']);
+}else{
+    $successMsg = "";
+}
 ?>
  
  <style>
@@ -113,6 +128,11 @@ div.mycontainer button {
     }
 }
  </style>
+ <head>
+ <?php
+
+ ?>
+ </head>
  <div class='minh'>
     <div class="mycontainer">
         
@@ -121,25 +141,41 @@ div.mycontainer button {
             <div class="tablinks" id="signuptab" data-form-id="signup">Sign up</div>
         </div>
         <div class="tabcontent" id="login">
-            <form action="backend/login_script.php">
+            <?php if($successMsg !== ""){ 
+                ?>
+                    <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?=$successMsg ?>
+                    </div>
+                <?php } ?>
+                <div class="alert alert-dismissible" style="display:none" id="msgdiv">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </div>
                 <label for="loginphone">Phone Number:</label>
                 <input required type="phone" id="loginphone" placeholder="+91 1234567890" />
-              
+                <button type="button" id="sign-in-button">Request OTP</button>
+               
                 <label for="loginotp">OTP:</label>
                 <input required  id="loginotp" placeholder="six-digit otp" />
-                <button type="submit">Login</button>
-            </form>
+                <button type="button" id="verify-button" >Verify OTP</button>
         </div>
         <div class="tabcontent" id="signup">
-            <form>
+            <form action="backend/signup_script.php" method = "POST">
+                <?php if($errorMsg !== ""){ 
+                ?>
+                    <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?= $errorMsg ?>
+                    </div>
+                <?php } ?>
                 <label for="signuphone">Phone:</label>
-                <input required type="phone" id="signupphone" placeholder="+91-1234567890" />
+                <input required name ="phoneNo" type="phone" id="signupphone" placeholder="+91-1234567890" />
                 <label for="signupemail">Email:</label>
-                <input type="email" id="signupemail" placeholder="you@domain.com" />
+                <input type="email" name="email" id="signupemail" placeholder="you@domain.com" />
                 <label for="signupPassword">Password:</label>
-                <input required type="password" id="signupPassword" placeholder="**********" />
+                <input required type="password" name="password" id="signupPassword" placeholder="**********" />
                 
-                <button type="submit">Sign up</button>
+                <button type="submit" name="submit">Sign up</button>
             </form>
         </div>
     </div>
@@ -165,8 +201,15 @@ function openForm(formid, tabid) {
     document.getElementById(formid).style.display = "block";
     document.getElementById(tabid).classList.add("active");
 }
+
+var error_type = `<?php echo $errorKey; ?>`;
+
 document.getElementById("logintab").click();
+if (error_type === "signup"){
+    document.getElementById("signuptab").click(); 
+}
         </script>
 <?php
 require 'footer.php';
+ require 'login_header_script.php';
 ?>

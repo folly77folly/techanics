@@ -36,7 +36,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
               <h4>Useful Links</h4>
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a>Home</a></li>
                 <li><a href="about.php">About us</a></li>
                 <li><a href="blog.php">Blog</a></li>
                 <li><a href="faq.php">FAQ</a></li>

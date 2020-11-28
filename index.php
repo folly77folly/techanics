@@ -1,6 +1,6 @@
  <?php
-    $home=1;
-    require 'index_header.php';
+ session_start();
+require 'index_header.php';
 ?>  
 
   <!-- ======= Top Bar ======= -->
@@ -103,7 +103,6 @@
                                  <a href="#"><i class="fas fa-heart"></i></a>
                             </div>
                             
-                            
                             <div class="row prices">
                                 <label class="radio">
                                     <input type="radio" name="products1" value="laptop" checked id="pro"><!--today-->
@@ -157,6 +156,7 @@
     <section class="header-factsheet">
       <div class="container py-4">
         <div class="section-title">
+        <!-- <h2>WelcomeA <?php echo $_SESSION["user_id"] ?></h2> -->
           <h2>Services</h2>
         </div>
         <div class="row">

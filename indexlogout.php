@@ -51,14 +51,14 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-        <a href="index.php"><img src="assets/img/mainlogo.jpeg" class="logo"></a>
+        <a><img src="assets/img/mainlogo.jpeg" class="logo"></a>
       <form class="form-inline mr-auto">
         <input type="text" class="form-control mr-sm-2 searchbar" placeholder="Search">  
     </form>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li <?php if(isset($home))echo 'class="active"'; ?>><a href="index.php">Home</a></li>
+          <!-- <li><a href="">Home</a></li> -->
           <li class="drop-down"><a href="">Services</a>
             <ul>
               <li><a href="products_buy.php">Buy</a></li>

@@ -16,6 +16,8 @@ class Cart{
             $success = mysqli_query($this->conn, $sqlQuery);
             if ($success){
                 return true;
+            }else{
+                return false;
             }
         }
         return false;
@@ -24,12 +26,14 @@ class Cart{
     public function find($userID, $productID){
         $this->userID = $userID;
         $this->productID = $productID;
-        $sqlQuery ="SELECT * FROM cart WHERE c_userid = '".$this->userID."' AND c_productid = '".$this->productID."' ";
+        $sqlQuery ="SELECT * FROM cart WHERE c_userid = '" .$this->userID. "' AND c_productid = '".$this->productID."' ";
         $query = mysqli_query($this->conn, $sqlQuery);
         if (mysqli_num_rows($query) > 0){
             return true;
+        }else{
+
+            return false;
         }
-        return false;
 
     }
     public function allCart($query){
