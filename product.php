@@ -1,8 +1,8 @@
 <?php
 require 'header_top.php';
 require 'config.php';
-include './classes/Rating.php';
-include './classes/Product.php';
+include 'classes/Rating.php';
+include 'classes/Product.php';
 $rate = new Rating($conn);
 $prod = new Product($conn);
 $prodRecord = "";
