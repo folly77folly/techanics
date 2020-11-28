@@ -1,24 +1,20 @@
 <?php
 require 'header_top.php';
 require 'config.php';
-// require 'autoloader/class_autoloader.php';
-// spl_autoload_register(function($class_name){
-//     include './classes/'.$class_name.'.php';
-// });
 include './classes/Rating.php';
 include './classes/Product.php';
-$rating = new Rating($conn);
-$product = new Product($conn);
-$productRecord = "";
+$rate = new Rating($conn);
+$prod = new Product($conn);
+$prodRecord = "";
 if(!isset($_GET['pid']))
 {
     echo "404";
 }else{
 
-    $productRecord = $product->find($_GET['pid']);
-    $star = $rating->productStar($_GET['pid']);
-    $review = $rating->reviewCount($_GET['pid']);
-    $rating = $rating->ratingCount($_GET['pid']);
+    $prodRecord = $prod->find($_GET['pid']);
+    $star = $rate->productStar($_GET['pid']);
+    $review = $rate->reviewCount($_GET['pid']);
+    $rate = $rate->ratingCount($_GET['pid']);
     // var_dump($review);
     
 }
@@ -86,32 +82,32 @@ $(document).ready(function() {
                      </ul>  -->
                 </div>
                 <div class="col-lg-5 order-lg-2 order-1 design">
-                    <div class="image_selected"><img src="<?= $productRecord['p_img1']?>" alt=""></div>
+                    <div class="image_selected"><img src="<?= $prodRecord['p_img1']?>" alt=""></div>
                 </div>
                 <div class="col-lg-6 order-3">
                     <div class="product_description">
                         <div class="product_name">
-                            <?= $productRecord['p_productName'] . " ". $productRecord['p_productDesc']  ?>
+                            <?= $prodRecord['p_productName'] . " ". $prodRecord['p_productDesc']  ?>
 
                         </div>
                         <div class="product-rating">
                             <span class="badge badge-success"><i class="fa fa-star"></i> <?= $star ?> Star</span> <span
-                                class="rating-review"><?= $rating?> Rating(s) & <?= $review ?> Review(s)</span>
+                                class="rating-review"><?= $rate?> Rating(s) & <?= $review ?> Review(s)</span>
                         </div>
                         <div>
                             <?php
-                                if($product->hasDiscount($_GET['pid'])){ ?>
-                            <span class="product_price">₹ <?= $product->discountAmt($_GET['pid']) ?></span> <strike
+                                if($prod->hasDiscount($_GET['pid'])){ ?>
+                            <span class="product_price">₹ <?= $prod->discountAmt($_GET['pid']) ?></span> <strike
                                 class="product_discount"> <span style='color:black'>₹
-                                    <?= number_format($productRecord['p_salePrice'], 2)?> <span> </strike>
+                                    <?= number_format($prodRecord['p_salePrice'], 2)?> <span> </strike>
                             <?php }else { ?>
-                            <span class="product_price">₹ <?= $productRecord['p_salePrice']?>
+                            <span class="product_price">₹ <?= $prodRecord['p_salePrice']?>
                                 <?php }
                                 ?>
                         </div>
-                        <?php if($product->hasDiscount($_GET['pid'])){ ?>
+                        <?php if($prod->hasDiscount($_GET['pid'])){ ?>
                         <span class="product_saved">You Saved:</span> <span style='color:black'>₹
-                            <?= $product->discount($_GET['pid']) ?><span>
+                            <?= $prod->discount($_GET['pid']) ?><span>
                                 <?php } ?>
 
                                 <div>
@@ -119,27 +115,27 @@ $(document).ready(function() {
                                 </div>
                                 <hr class="singleline">
                                 <div>
-                                    <span class="product_info"><span><?= ucwords($productRecord['p_productDesc']) ?>,<br>
+                                    <span class="product_info"><span><?= ucwords($prodRecord['p_productDesc']) ?>,<br>
                                             <span class="product_info"><b>Model Number:</b>
-                                                <?= $productRecord['p_modelNo']?><span><br> <span
+                                                <?= $prodRecord['p_modelNo']?><span><br> <span
                                                         class="product_info"><b>Color:
-                                                        </b><?= $productRecord['p_color']?><span><br> <span
+                                                        </b><?= $prodRecord['p_color']?><span><br> <span
                                                                 class="product_info"><b>Brand:</b>
-                                                                <?=  $productRecord['p_brandName']?><span><br> <span
+                                                                <?=  $prodRecord['p_brandName']?><span><br> <span
                                                                         class="product_info"><b>In Stock:</b>
-                                                                        <?=$productRecord['p_quantity'] ?> Units<span>
+                                                                        <?=$prodRecord['p_quantity'] ?> Units<span>
 
                                 </div>
                                 <div>
                                     <div class="row" style="margin-top: 12px;">
                                         <div class="col-xs-6" style="margin-left: 15px;"> <span
                                                 class="product_options">Ram Options</span><br> <button
-                                                class="btn themebtn btn-sm"><b><?=  $productRecord['p_ram']?>
+                                                class="btn themebtn btn-sm"><b><?=  $prodRecord['p_ram']?>
                                                     GB</b></button> <button class="btn themebtn btn-sm"><b>8
                                                     GB</b></button></div>
                                         <div class="col-xs-6" style="margin-left: 55px;"> <span
                                                 class="product_options">Storage Options</span><br> <button
-                                                class="btn themebtn btn-sm"><b><?=  $productRecord['p_ssdCpty']?>
+                                                class="btn themebtn btn-sm"><b><?=  $prodRecord['p_ssdCpty']?>
                                                     GB</b></button> <button class="btn themebtn btn-sm"><b>1
                                                     TB</b></button> </div>
                                     </div>
@@ -150,7 +146,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-6" style="margin-left: 13px;">
-                                        <button data-id ="<?=$productRecord['p_productId'] ?>" type="button" class="cart btn themebtninv shop-button">Add to Cart</button>
+                                        <button data-id ="<?=$prodRecord['p_productId'] ?>" type="button" class="cart btn themebtninv shop-button">Add to Cart</button>
                                         <button type="button" class="btn themebtninv shop-button">Buy Now</button>
 
                                     </div>
@@ -184,7 +180,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Sales Package :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li><?=  ucwords($productRecord['p_salePackage'])?></li>
+                                        <li><?=  ucwords($prodRecord['p_salePackage'])?></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -192,7 +188,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Model Number :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li> <?=  $productRecord['p_modelNo']?></li>
+                                        <li> <?=  $prodRecord['p_modelNo']?></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -200,7 +196,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Part Number :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li><?=  $productRecord['p_partNo']?></li>
+                                        <li><?=  $prodRecord['p_partNo']?></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -208,7 +204,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Color :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li><?=  ucwords($productRecord['p_color'])?></li>
+                                        <li><?=  ucwords($prodRecord['p_color'])?></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -216,7 +212,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Suitable for :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li><?=  ucwords($productRecord['p_suitableFor'])?></li>
+                                        <li><?=  ucwords($prodRecord['p_suitableFor'])?></li>
                                     </ul>
                                 </td>
                             </tr>
@@ -224,7 +220,7 @@ $(document).ready(function() {
                                 <td class="col-md-4"><span class="p_specification"><b>Processor Brand :</b></span> </td>
                                 <td class="col-md-8">
                                     <ul>
-                                        <li><?=  ucwords($productRecord['p_procBrand'])?></li>
+                                        <li><?=  ucwords($prodRecord['p_procBrand'])?></li>
                                     </ul>
                                 </td>
                             </tr>
