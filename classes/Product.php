@@ -1,6 +1,4 @@
 <?php
-// include '..collections/Constants.php';
-// use App\Collections\Constants;
 class Product {
     public $id;
     public $type;
