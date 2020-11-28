@@ -160,7 +160,7 @@ div.mycontainer button {
                 <button type="button" id="verify-button" >Verify OTP</button>
         </div>
         <div class="tabcontent" id="signup">
-            <form action="backend/signup_script.php" method = "POST">
+            <form action="backend/signup_script.php" method = "POST" onsubmit="dosubmit();">
                 <?php if($errorMsg !== ""){ 
                 ?>
                     <div class="alert alert-danger alert-dismissible">
@@ -175,12 +175,13 @@ div.mycontainer button {
                 <label for="signupPassword">Password:</label>
                 <input required type="password" name="password" id="signupPassword" placeholder="**********" />
                 
-                <button type="submit" name="submit">Sign up</button>
+                <button type="submit" name="submit" id="signup-btn">Sign up</button>
             </form>
         </div>
     </div>
 </div>
      <script>
+
         var tablinks = document.querySelectorAll("div.tablinks");
 
 for (var i = 0; i < tablinks.length; i++) {
@@ -207,6 +208,11 @@ var error_type = `<?php echo $errorKey; ?>`;
 document.getElementById("logintab").click();
 if (error_type === "signup"){
     document.getElementById("signuptab").click(); 
+    $('#signup-btn').html("Sign up")
+}
+
+function dosubmit(){
+    $('#signup-btn').html("<i class='fas fa-spinner fa-spin fa-2x'></i> Verifying...")
 }
         </script>
 <?php
