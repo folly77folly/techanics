@@ -5,8 +5,8 @@ require 'config.php';
 // spl_autoload_register(function($class_name){
 //     include './classes/'.$class_name.'.php';
 // });
-require './classes/Rating.php';
-require './classes/Product.php';
+include './classes/Rating.php';
+include './classes/Product.php';
 $rating = new Rating($conn);
 $product = new Product($conn);
 $productRecord = "";
