@@ -6,8 +6,13 @@
 body {
   font-family: 'Mulish', sans-serif;
   color: #002730;
+  overflow-x: hidden;
+  width: 100%;
 }
-
+html{
+  overflow-x: hidden;
+  width: 100%;
+}
  a {
   color: #7eb3bd;
 }
