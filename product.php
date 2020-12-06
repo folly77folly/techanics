@@ -1,14 +1,10 @@
 <?php
-require 'header_top.php';
+// require 'header_top.php';
 require 'config.php';
-// require 'autoloader/class_autoloader.php';
-spl_autoload_register(function($className){
-    include 'classes/'.$className.'.php';
-});
-// echo (dirname(__DIR__).'classes/Star.php');
-// require dirname(__DIR__).'classes/Star.php';
+echo (dirname(__DIR__).'classes/rating.php');
+require dirname(__DIR__).'classes/rating.php';
 // require 'classes/Product.php';
-$rate = new Star($conn);
+$rate = new Rating($conn);
 $prod = new Product($conn);
 $prodRecord = "";
 if(!isset($_GET['pid']))

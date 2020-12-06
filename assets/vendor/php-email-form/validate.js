@@ -101,13 +101,11 @@
 
     if( ! action ) {
       this_form.find('.loading').slideUp();
-      this_form.find('.sent-message').slideDown().html('The form action property is not set!');
+      this_form.find('.error-message').slideDown().html('The form action property is not set!');
       return false;
     }
     
     this_form.find('.sent-message').slideUp();
-    // alert('hi4')
-    // window.location.reload()
     this_form.find('.error-message').slideUp();
     this_form.find('.loading').slideDown();
 
@@ -141,10 +139,7 @@
         if(!msg) {
           msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
         }
-        this_form.find("input:not(input[type=submit]), textarea").val('')
-        alert('Message Sent Successfully')
-        this_form.find('.sent-message').slideDown();
-        // window.location.reload()
+        this_form.find('.error-message').slideDown().html(msg);
       }
     }).fail( function(data){
       console.log(data);
@@ -163,8 +158,7 @@
         error_msg += data.responseText;
       }
       this_form.find('.loading').slideUp();
-      this_form.find('.sent-message').slideDown();
-      this_form.find("input:not(input[type=submit]), textarea").val('')
+      this_form.find('.error-message').slideDown().html(error_msg);
     });
   }
 

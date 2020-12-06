@@ -487,8 +487,8 @@ ul {
    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
      inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-  color:#3d2f95;
-  border: 0.04rem solid #3d2f95;
+  color:#7eb3bd;
+  border: 0.04rem solid #7eb3bd;
 } */
 .quantity_inc,
 .quantity_dec {
@@ -560,7 +560,7 @@ ul {
   }
   
   .single-product .product-title h3 a:hover {
-    color: #3d2f95;
+    color: #7eb3bd;
     
   
   }
@@ -629,9 +629,9 @@ ul {
      -2px -2px 12px rgba(255, 255, 255, 0.5),
       inset 2px 2px 4px rgba(255, 255, 255, 0.1),
        2px 2px 8px rgba(0, 0, 0, 0.15);
-    color: #3d2f95;
+    color: #7eb3bd;
     text-decoration: none;
-    border: 0.04rem solid #3d2f95 ;
+    border: 0.04rem solid #7eb3bd ;
   }
   
   .btn-small:hover span {
@@ -643,8 +643,8 @@ ul {
      inset -2px -2px 12px rgba(255, 255, 255, 0.5),
       inset 2px 2px 4px rgba(255, 255, 255, 0.1),
        inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-    color:#3d2f95;
-    border: 0.04rem solid #3d2f95;
+    color:#7eb3bd;
+    border: 0.04rem solid #7eb3bd;
   }
   .button-center
   {

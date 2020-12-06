@@ -184,7 +184,7 @@ a {
 }
 
 .request-form {
-	background-color: #5d4fb5;
+	background-color: #7eb3bd;
 	padding: 40px 0px;
 	color: #fff;
 }
@@ -226,7 +226,7 @@ a {
 
 .border-button:hover {
 	background-color: #fff;
-	color: #5d4fb5;
+	color: #7eb3bd;
 } 
 
 

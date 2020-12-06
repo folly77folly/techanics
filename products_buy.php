@@ -256,7 +256,7 @@ a {
                 ?>
             </div>
             <div class="col-md-9 filter_data">
-
+                
             </div>
             <input type="hidden" id="page" value=0>
             <input type="hidden" value="buy" id="product_type">

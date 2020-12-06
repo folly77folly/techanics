@@ -9,7 +9,7 @@ body {
 }
 
  a {
-  color: #3d2f95;
+  color: #7eb3bd;
 }
 
 a:hover {
@@ -48,18 +48,17 @@ a:hover {
 }
 
 .search-form {
-    border: 1px solid #ffffff !important;
+    border: 1px solid #bbb !important;
 }
 
 .search-button {
-    border-color: #ffffff;
+    border-color: #bbb;
     background-color:rgba(34,44,51,0.6);
     
 }
 
 .navbar-main {
-    background-color: #9D9FA4;
-    
+    background-color: #7eb3bd !important;    
 }
 
 .navbar-toggler {
@@ -124,7 +123,7 @@ a:hover {
 }
 
 .nav-link:hover{
-    color:#3d2f95;
+    color:#002730;
 }
 .nav-item{
     margin-right: 15px;
@@ -158,13 +157,13 @@ a:hover {
   width: 40px;
   height: 40px;
   border-radius: 4px;
-  background: #3d2f95;
+  background: #7eb3bd;
   color: #fff;
   transition: all 0.4s;
 }
 
 .back-to-top i:hover {
-  background: #4d3fa5;
+  background: #8ec3cd;
   color: #fff;
 }
 
@@ -182,7 +181,7 @@ a:hover {
 .card2{
   transition: 0.4s ease;
   border-radius:  0.4rem;
-  border: 0.04rem solid #3d2f95 ;
+  border: 0.04rem solid #7eb3bd ;
   
 }
 .card2 .overlay{
@@ -192,7 +191,7 @@ a:hover {
 .card{
   transition: 0.4s ease;
   border-radius:  2rem;
-  border: 0.02rem solid#3d2f95 ;
+  border: 0.02rem solid#7eb3bd ;
   
 }
 
@@ -202,7 +201,7 @@ a:hover {
 
 .card:hover{
   color: #fff!important;
-  background:#3d2f95;
+  background:#7eb3bd;
   text-decoration: none;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
 }
@@ -283,7 +282,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #3d2f95;
+  background: #7eb3bd;
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -328,7 +327,7 @@ section {
 }
 
 .clients .owl-dot.active {
-  background-color: #3d2f95 !important;
+  background-color: #7eb3bd !important;
 }
 
 
@@ -336,7 +335,7 @@ section {
 .des {
   width: 100%;
   /* min-height: 70vh; */
-  background: #3d2f95;
+  background: #7eb3bd;
   font-size: 0.8rem;
    display: flex;
   justify-content: center;
@@ -540,7 +539,7 @@ label.radio{
 }
 
 .single-product .product-title h3 a:hover {
-  color: #3d2f95;
+  color: #7eb3bd;
   
 
 }
@@ -610,9 +609,9 @@ a {
    -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
      2px 2px 8px rgba(0, 0, 0, 0.15);
-  color: #3d2f95;
+  color: #7eb3bd;
   text-decoration: none;
-  border: 0.04rem solid #3d2f95 ;
+  border: 0.04rem solid #7eb3bd ;
 }
 
 .btn-small:hover span {
@@ -624,8 +623,8 @@ a {
    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
      inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-  color:#3d2f95;
-  border: 0.04rem solid #3d2f95;
+  color:#7eb3bd;
+  border: 0.04rem solid #7eb3bd;
 }
 .button-center
 {
@@ -672,7 +671,7 @@ a {
 }
 
 .cartt {
-  background-color:#3d2f95;
+  background-color:#7eb3bd;
   color: white;
   margin-top: 10px;
   font-size: 12px;
@@ -707,16 +706,16 @@ a {
 /*--------------advertisment end-----------*/
 .themebtn{
     background-color: transparent;
-    color: #3d2f95;
+    color: #7eb3bd;
     font-weight: 500;
 }
 .themebtn:hover{
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     color: white;
     font-weight: 500;
 }
 .themebtninv{
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     color: #fff;
     font-weight: 500;
 }
@@ -820,17 +819,17 @@ a {
 }
 
 .btn-blue {
-  background: #3d2f95;
+  background: #7eb3bd;
   font-size: 16px;
   color: #fff;
   width: 150px;
   height: 40px;
-  border: 1px solid#3d2f95;
+  border: 1px solid#7eb3bd;
   text-transform: uppercase
 }
 
 .btn-blue:hover {
-  background: #3d2f95;
+  background: #7eb3bd;
   color: white;
 }
 

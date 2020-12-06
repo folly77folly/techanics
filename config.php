@@ -3,8 +3,8 @@
 
 if($_SERVER['HTTP_HOST'] =="localhost"){
     define('DB_HOST', 'localhost');
-    define('DB_USERNAME', 'pmanager');
-    define('DB_PASSWORD', 'pass');
+    define('DB_USERNAME', 'root');
+    define('DB_PASSWORD', '');
     define('DB_NAME', 'techanics');
 
     $conn = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME );

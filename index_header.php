@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
                     <form action="#" class="search-wrap">
-                        <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:35%;" placeholder="Search">
+                        <div class="input-group w-100"> <input type="text" class="form-control search-form" style="width:35%; background-color: #e2ecee;" placeholder="Search">
                             <div class="input-group-append"> <button class="btn  search-button" type="submit"> <i class="fas fa fa-search" style="color: #fff;"></i> </button> </div>
                         </div>
                     </form>
