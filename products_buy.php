@@ -221,14 +221,12 @@ a {
 }
 #reset:hover
 {
-    background-color:
     border-color: #ffffff;
     background-color:rgba(34,44,51,0.6);
     color: #fff;
 }
 .hover:hover
 {
-    background-color:
     border-color: #ffffff;
     background-color:rgba(34,44,51,0.6);
     color: #fff;
