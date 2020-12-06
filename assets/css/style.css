@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&display=swap');
 body {
   font-family: 'Mulish', sans-serif;
-  color: #444444;
+  color: #002730;
 }
 
  a {
@@ -1379,7 +1379,7 @@ a {
   height: 100%;
   content: "";
   top: -50%;
-  background-color:#0276FD;
+  background-color:#3f8995;
   transform: skewY(370deg);
   transition: 1s ease-in
 }
@@ -1424,8 +1424,8 @@ a {
   color: #fff;
   width: 160px;
   margin-top: 20px;
-  background-color:#4d3fa5 !important;
-    border-color:#4d3fa5 !important;
+  background-color:#7eb3bd !important;
+    border-color:#7eb3bd !important;
 }
 
 .buy-now:focus {

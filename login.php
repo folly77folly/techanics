@@ -24,6 +24,7 @@ if(isset($_SESSION['success'])){
 }  
 div.mycontainer {
     margin: auto;
+    margin-bottom: 30px;
     padding: 1em;
     overflow: hidden;
     background-color: whitesmoke;
@@ -45,7 +46,7 @@ div.mycontainer input {
     padding: 0.8em 0 0.8em 0.8em;
     outline: none;
     border: none;
-    border-bottom: 2px solid #3d2f95;
+    border-bottom: 2px solid #7eb3bd;
     margin: 0.5em auto 0.5em auto;
 }
 
@@ -56,7 +57,7 @@ div.mycontainer button {
     cursor: pointer;
     letter-spacing: 0.2em;
     box-shadow: 0 0 2px 2px #888;
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     color: white;
     border: none;
     border-radius: 5px;
@@ -75,7 +76,7 @@ div.mycontainer button {
     width: 50%;
     text-align: center;
     cursor: pointer;
-    border: 0.4px solid #3d2f95;
+    border: 0.4px solid #7eb3bd;
     transition: all 0.2s linear;
 }
 
@@ -83,7 +84,7 @@ div.mycontainer button {
     animation-name: activetab;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     color: white;
 }
 
