@@ -9,11 +9,11 @@
         border-radius: 20px;
     }
     .customcard a{
-        color: #3d2f95;
+        color: #7eb3bd;
         font-weight: 800;
     }
     .customcard a:hover{
-        color: #555;
+        color: #3f8995;
     }
     .customcard:hover{
         border-bottom: 6px #aaa solid;

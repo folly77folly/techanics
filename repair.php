@@ -38,7 +38,7 @@
 
                     <div class="email">
                         <img src="assets/img/repair.jpg">
-                        <h3 style="border-bottom: 2px #3d2f95 solid; padding-bottom: 10px;"><b><br>Book A Repair</b>
+                        <h3 style="border-bottom: 2px #7eb3bd solid; padding-bottom: 10px;"><b><br>Book A Repair</b>
                         </h3><br>
                         <i class="icofont-download"></i>
                         <p>Download the app to get repair service <b>at your Doorstep</b>.</p>
@@ -64,7 +64,7 @@
                 <form action="./backend/contact_us.php" method="post" role="form" class="php-email-form">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <h4 style="border-bottom: 2px #3d2f95 solid; width: 20%; padding-bottom: 10px;">
+                            <h4 style="border-bottom: 2px #7eb3bd solid; width: 20%; padding-bottom: 10px;">
                                 <b>Enquiry</b>
                             </h4>
                         </div>
