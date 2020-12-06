@@ -4,7 +4,7 @@ if(!isset($_GET['pid']))
 {
     echo "404";
 }else{
-    $similarRecord = $product->findSimilar($_GET['pid']);
+    $similarRecord = $prod->findSimilar($_GET['pid']);
 }
 
 ?>
