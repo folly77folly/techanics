@@ -1,18 +1,8 @@
 <?php
 require 'header_top.php';
 require 'config.php';
-// spl_autoload_register(function($className){
-//     include 'classes/'. $className .'.php';
-// });
-
-// echo (dirname(__DIR__).'classes/rating.php');
-// require dirname(__DIR__).'classes/rating.php';
 require_once 'classes/Product.php';
 require_once 'classes/Star.php';
-
-// $path = $_SERVER['DOCUMENT_ROOT']."/techanics/autoloader/";
-// echo $path;
-// require_once ($path."class_autoloader.php");
 
 $rate = new Star($conn);
 $prod = new Product($conn);
