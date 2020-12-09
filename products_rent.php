@@ -36,14 +36,14 @@ body {
 }
 
 .about span {
-    color: #3d2f95;
+    color: #7eb3bd;
     font-size: 16px
 }
 
 .cart-button button {
     font-size: 12px;
     color: #fff;
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     height: 38px
 }
 
@@ -51,13 +51,13 @@ body {
 button:active {
     font-size: 12px;
     color: #fff;
-    background-color: #3d2f95;
+    background-color: #7eb3bd;
     box-shadow: none
 }
 
 .product_fav i {
     line-height: 40px;
-    color: #3d2f95;
+    color: #7eb3bd;
     font-size: 15px
 }
 
@@ -79,7 +79,7 @@ button:active {
 }
 
 .product_fav:hover {
-    background: #3d2f95
+    background: #7eb3bd
 }
 
 .product_fav:hover i {
@@ -159,9 +159,9 @@ a {
    -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
      2px 2px 8px rgba(0, 0, 0, 0.15);
-  color: #3d2f95;
+  color: #7eb3bd;
   text-decoration: none;
-  border: 0.04rem solid #3d2f95 ;
+  border: 0.04rem solid #7eb3bd ;
 }
 
 .btn-small:hover span {
@@ -173,8 +173,8 @@ a {
    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
      inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-  color:#3d2f95;
-  border: 0.04rem solid #3d2f95;
+  color:#7eb3bd;
+  border: 0.04rem solid #7eb3bd;
 }
 
 

@@ -173,8 +173,8 @@ div.mycontainer button {
                 <input required name ="phoneNo" type="phone" id="signupphone" placeholder="+91-1234567890" />
                 <label for="signupemail">Email:</label>
                 <input type="email" name="email" id="signupemail" placeholder="you@domain.com" />
-                <label for="signupPassword">Password:</label>
-                <input required type="password" name="password" id="signupPassword" placeholder="**********" />
+                <label for="signupPassword">Name:</label>
+                <input required type="text" name="name" id="signupPassword" placeholder="Your name" />
                 
                 <button type="submit" name="submit">Sign up</button>
             </form>
