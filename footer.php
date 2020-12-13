@@ -55,7 +55,8 @@
         &copy; Copyright. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a href="https://www.hspmsolutions.com/">HSPM sol ltd</a>
+        Designed by <a href="https://www.hspmsolutions.com/">HSPM sol ltd </a>
+        <a href="https://www.hspmsolutions.com/"><span class="fas fa-wrench"></span></a>
       </div>
     </div>
   </footer><!-- End Footer -->
