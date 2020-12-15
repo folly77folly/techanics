@@ -122,6 +122,60 @@
 </div>
 <div class="type p-2 mb-2">
     <div class="heading d-flex justify-content-between align-items-center">
+        <h6 class="text-uppercase">Category</h6>
+        <span>--</span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector category" type="checkbox" value="laptop" id="flexCheckDefault" />
+            <label class="form-check-label" for="flexCheckDefault"> Laptop </label>
+        </div>
+        <span></span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector category" type="checkbox" value="pc" id="flexCheckChecked" />
+            <label class="form-check-label" for="flexCheckChecked"> PC </label>
+        </div>
+        <span></span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector category" type="checkbox" value="mobile" id="flexCheckChecked" />
+            <label class="form-check-label" for="flexCheckChecked"> Mobile </label>
+        </div>
+        <span></span>
+    </div>
+</div>
+<div class="type p-2 mb-2">
+    <div class="heading d-flex justify-content-between align-items-center">
+        <h6 class="text-uppercase">Type</h6>
+        <span>--</span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector productType2" type="checkbox" value="new" id="product_type2" />
+            <label class="form-check-label" for="flexCheckDefault"> New </label>
+        </div>
+        <span></span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector productType2" type="checkbox" value="sechand" id="product_type2" />
+            <label class="form-check-label" for="flexCheckChecked"> Refurbish </label>
+        </div>
+        <span></span>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-check">
+            <input class="form-check-input common_selector productType2" type="checkbox" value="custom" id="product_type2" />
+            <label class="form-check-label" for="flexCheckChecked"> Custom </label>
+        </div>
+        <span></span>
+    </div>
+</div>
+<div class="type p-2 mb-2">
+    <div class="heading d-flex justify-content-between align-items-center">
         <h6 class="text-uppercase">CAPACITY</h6>
         <span>--</span>
     </div>

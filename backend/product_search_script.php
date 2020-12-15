@@ -48,6 +48,14 @@ if(isset($_POST['action'])){
         ";
     }
 
+    if(isset($_POST['category']))
+    {
+        $category_filter = implode(",", $_POST['category']);
+        $sqlQuery .="
+        AND p_category IN( '".$category_filter."')
+        ";
+    }
+
     if(isset($_POST['capacity']))
     {
         $capacity_filter = implode(",", $_POST['capacity']);
@@ -84,6 +92,28 @@ if(isset($_POST['action'])){
         {
             $sqlQuery .="
             AND p_sale <> '".Constants::$ZERO."'
+            ";
+        }
+    }
+
+    if(isset($_POST['productType2']))
+    {
+        if ($_POST['productType2'] == "new")
+        {
+            $sqlQuery .="
+            AND p_sale <> '".Constants::$ZERO."'
+            ";
+        }
+        if ($_POST['productType2'] == "sechand")
+        {
+            $sqlQuery .="
+            AND p_sechand <> '".Constants::$ZERO."'
+            ";
+        }
+        if ($_POST['productType2'] == "custom")
+        {
+            $sqlQuery .="
+            AND p_custom <> '".Constants::$ZERO."'
             ";
         }
     }
