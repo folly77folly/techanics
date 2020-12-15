@@ -2,7 +2,7 @@
 class User{
     public $email;
     public $phoneNo;
-    public $password;
+    public $name;
     public static $minPassLength = 6;
     public static $minPhoneLength = 14;
 
@@ -30,16 +30,16 @@ class User{
         return false;
     }
 
-    public function signUp($phoneNo, $email, $password){
+    public function signUp($phoneNo, $email, $name){
         $this->phoneNo = $phoneNo;
         $this->email = $email;
-        $this->password = $password;
+        $this->name = $name;
         $this->userId = strtoupper($this->secureCode());
         $result = $this->existingUser($phoneNo);
         var_dump($result);
         if (!$this->existingUser($phoneNo)){
 
-            $sqlQuery = "INSERT INTO Users values(NULL, '$this->userId', 'null', '$this->email', '$this->phoneNo', '','','', CURRENT_TIMESTAMP, '1')";
+            $sqlQuery = "INSERT INTO Users values(NULL, '$this->userId', '$this->name', '$this->email', '$this->phoneNo', '','','', CURRENT_TIMESTAMP, '1')";
             var_dump($sqlQuery);
             if(mysqli_query($this->conn, $sqlQuery)){
                 return true;

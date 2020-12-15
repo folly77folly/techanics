@@ -154,11 +154,11 @@ div.mycontainer button {
                 </div>
                 <label for="loginphone">Phone Number:</label>
                 <input required type="phone" id="loginphone" placeholder="+91 1234567890" />
-                <button type="button" id="sign-in-button">Request OTP</button>
+                <button type="button" id="sign-in-button2">Login</button>
                
-                <label for="loginotp">OTP:</label>
+                <!-- <label for="loginotp">OTP:</label>
                 <input required  id="loginotp" placeholder="six-digit otp" />
-                <button type="button" id="verify-button" >Verify OTP</button>
+                <button type="button" id="verify-button" >Verify OTP</button> -->
         </div>
         <div class="tabcontent" id="signup">
             <form action="backend/signup_script.php" method = "POST">
