@@ -98,7 +98,6 @@
                         <div class="dropdown-menu"> <a class="dropdown-item" href="" data-abc="true">Lenovo</a> <a class="dropdown-item" href="" data-abc="true">Dell</a> <a class="dropdown-item" href="" data-abc="true">HP</a> <a class="dropdown-item" href="" data-abc="true">Apple</a> </div>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="repair.php" data-abc="true">Repair</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="products_buy.php" data-abc="true">Refurbished</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="contact.php" data-abc="true">Contact</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="about.php" data-abc="true">About us</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="faq.php" data-abc="true">FAQ</a> </li>

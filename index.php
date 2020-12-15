@@ -1,5 +1,5 @@
  <?php
- session_start();
+ require 'config.php';
 require 'index_header.php';
 ?>  
 
@@ -298,71 +298,29 @@ require 'index_header.php';
           </div>
 
           <div class="row">
-             
-              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <?php
+            $sel_p="select * from product limit 4";
+            $sel_p=mysqli_query($conn,$sel_p);
+            while($row=mysqli_fetch_array($sel_p)){
+        ?>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                   <div class="single-product">
                       <div class="product-thumb">
                           <img src="assets/img/slide/img1.jpg" alt="">
                       </div>
                       <div class="product-title">
-                          <h3><a href="">Revolutionary Andriod oneplus</a></h3>
+                          <h3><a href=""><?php echo substr($row['p_productName'], 0, 30); echo '...';?></a></h3>
                       </div>
                       <div class="product-btns">
-                          <a class="btn-small mr-2">₹ 879</a>
-                          <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                          <a href="product.php?pid=<?php echo $row['p_id'];?>" class="btn-small mr-2">₹ <?php echo $row['p_salePrice'];?></a>
+                          <a class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
                          
                       </div>
                   </div>
               </div>
-
-              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                  <div class="single-product">
-                      <div class="product-thumb">
-                          <img src="assets/img/slide/img1.jpg" alt="">
-                      </div>
-                      <div class="product-title">
-                          <h3><a href="">Best collection casual pink shirt</a></h3>
-                      </div>
-                      <div class="product-btns">
-                          <a href="" class="btn-small mr-2">₹ 879</a>
-                          <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                        
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                  <div class="single-product">
-                      <div class="product-thumb">
-                          <img src="assets/img/slide/img1.jpg" alt="">
-                      </div>
-                      <div class="product-title">
-                          <h3><a href="">Formal Blue shirt for office purpose</a></h3>
-                      </div>
-                      <div class="product-btns">
-                          <a href="" class="btn-small mr-2">₹ 79</a>
-                          <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                          
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                  <div class="single-product">
-                      <div class="product-thumb">
-                          <img src="assets/img/slide/img1.jpg" alt="">
-                      </div>
-                      <div class="product-title">
-                          <h3><a href="">Sports white tshirt for long use</a></h3>
-                      </div>
-                      <div class="product-btns">
-                          <a href="" class="btn-small mr-2">₹ 879</a>
-                          <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                         
-                      </div>
-                  </div>
-              </div>
-
+        <?php
+            }
+        ?>
           </div>
       </div>
   </section>
@@ -380,72 +338,30 @@ require 'index_header.php';
         </div>
 
         <div class="row">
-           
+        <?php
+            $sel_p="select * from product limit 5,4";
+            $sel_p=mysqli_query($conn,$sel_p);
+            while($row=mysqli_fetch_array($sel_p)){
+        ?>
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-product">
-                    <div class="product-thumb">
-                        <img src="assets/img/slide/img1.jpg" alt="">
-                    </div>
-                    <div class="product-title">
-                        <h3><a href="">Revolutionary Andriod oneplus</a></h3>
-                    </div>
-                    <div class="product-btns">
-                        <a href="" class="btn-small mr-2">₹ 879</a>
-                        <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                       
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-product">
-                    <div class="product-thumb">
-                        <img src="assets/img/slide/img1.jpg" alt="">
-                    </div>
-                    <div class="product-title">
-                        <h3><a href="">Best collection casual pink shirt</a></h3>
-                    </div>
-                    <div class="product-btns">
-                        <a href="" class="btn-small mr-2">₹ 879</a>
-                        <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                      
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-product">
-                    <div class="product-thumb">
-                        <img src="assets/img/slide/img1.jpg" alt="">
-                    </div>
-                    <div class="product-title">
-                        <h3><a href="">Formal Blue shirt for office purpose</a></h3>
-                    </div>
-                    <div class="product-btns">
-                        <a href="" class="btn-small mr-2">₹ 879</a>
-                        <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-product">
-                    <div class="product-thumb">
-                        <img src="assets/img/slide/img1.jpg" alt="">
-                    </div>
-                    <div class="product-title">
-                        <h3><a href="">Sports white tshirt for long use</a></h3>
-                    </div>
-                    <div class="product-btns">
-                        <a href="" class="btn-small mr-2">₹ 879</a>
-                        <a href="products_buy.php" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
-                       
-                    </div>
-                </div>
-            </div>
-
-        </div>
+                  <div class="single-product">
+                      <div class="product-thumb">
+                          <img src="assets/img/slide/img1.jpg" alt="">
+                      </div>
+                      <div class="product-title">
+                          <h3><a href=""><?php echo substr($row['p_productName'], 0, 30); echo '...';?></a></h3>
+                      </div>
+                      <div class="product-btns">
+                          <a href="product.php?pid=<?php echo $row['p_id'];?>" class="btn-small mr-2">₹ <?php echo $row['p_salePrice'];?></a>
+                          <a class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                         
+                      </div>
+                  </div>
+              </div>
+        <?php
+            }
+        ?>
+          </div>
     </div>
 </section>
 
@@ -479,7 +395,6 @@ require 'index_header.php';
           <img src="assets/img/clients/client-5.png" alt="">
           <img src="assets/img/clients/client-6.png" alt="">
           <img src="assets/img/clients/client-7.png" alt="">
-          <img src="assets/img/clients/client-8.png" alt="">
         </div>
 
       </div>
