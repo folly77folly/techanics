@@ -15,7 +15,6 @@ window.onload= function(){
   // firebase.initializeApp(firebaseConfig);
   // firebase.analytics();
   $(document).on("click",'#sign-in-button2', function(){
-    alert('hi');
     var phoneNo = $('#loginphone').val();
     if(phoneNo === ""){
       divMessage("alert-danger","Phone Number Cannot Be Empty !!!");
