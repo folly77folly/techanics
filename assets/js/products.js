@@ -19,6 +19,8 @@ $(document).ready(function(){
         var capacity = get_filter('capacity');
         var processor = get_filter('processor');
         var discount = get_filter('discount');
+        var category = get_filter('category');
+        var productType2 = get_filter('productType2');
 
         if(!discount.length)
         {
@@ -32,7 +34,7 @@ $(document).ready(function(){
             method:"POST",
             data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price,
                  brand:brand, ram:ram, storage:storage, capacity:capacity, processor:processor, ram_type:ram_type,
-                 discount:discount,page:page, productType: productType
+                 discount:discount,page:page, productType: productType, productType2: productType2, category:category
                 },
             beforeSend:function(){
                 console.log('before_send')
