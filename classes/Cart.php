@@ -11,7 +11,8 @@ class Cart{
         $this->conn = $conn;
     }
     public function addToCart($userID, $productID){
-        if (!$this->find($userID, $productID)){
+        $find_result = $this->find($userID, $productID);
+        if ($find_result == false){
             $sqlQuery ="INSERT INTO cart values(NULL, '$this->userID', '$this->productID','1','1')";
             $success = mysqli_query($this->conn, $sqlQuery);
             if ($success){
