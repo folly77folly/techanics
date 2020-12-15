@@ -40,7 +40,7 @@
                 <li><a href="about.php">About us</a></li>
                 <li><a href="blog.php">Blog</a></li>
                 <li><a href="faq.php">FAQ</a></li>
-                <li><a href="work.php">Work with Us</a></li>
+                <li><a href="career.php">Work with Us</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="privacy.php">Privacy policy</a></li>
             </ul>
